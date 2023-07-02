@@ -1,21 +1,28 @@
 ﻿
-Console.WriteLine("Введите число:");
-        int number = int.Parse(Console.ReadLine()!);
+       Console.WriteLine("Введите номер дня недели (1-7):");
+        int dayNumber = int.Parse(Console.ReadLine()!);
 
-        PrintThirdDigit(number);
-    
-
-    static void PrintThirdDigit(int number)
-    {
-        string numberString = number.ToString();
-
-        if (numberString.Length >= 3)
+        if (dayNumber >= 1 && dayNumber <= 7)
         {
-            char thirdDigit = numberString[2];
-            Console.WriteLine("Третья слева направо цифра числа: " + thirdDigit);
+            bool isWeekend = IsWeekend(dayNumber);
+
+            if (isWeekend)
+            {
+                Console.WriteLine("День является выходным.");
+            }
+            else
+            {
+                Console.WriteLine("День не является выходным.");
+            }
         }
         else
         {
-            Console.WriteLine("Третьей цифры нет!");
+            Console.WriteLine("Такого дня недели не существует.");
         }
+
+
+    static bool IsWeekend(int dayNumber)
+    {
+        // Проверяем, является ли день выходным (суббота или воскресенье)
+        return (dayNumber == 6 || dayNumber == 7);
     }
