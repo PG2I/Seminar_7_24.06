@@ -3,21 +3,27 @@
 //2, 4 -> 16
 
 Console.WriteLine("Введите число - A");
-int A = int.Parse(Console.ReadLine()!);
+double A = double.Parse(Console.ReadLine()!);
 Console.WriteLine("Введите число - B");
-int B = int.Parse(Console.ReadLine()!);
-int Product(int num)
+double B = double.Parse(Console.ReadLine()!);
+double Product(double num)
 { 
-    int result = 1;
+    double result = 1;
+   double abs_B = Math.Abs(B);
 
-    for (int i = 1; i <= B; i++)
+    for (double i = 1; i <= abs_B; i++)
     {
-        result = result * A;
+      
+      if (B > 0)
+        result *=  A;
+
+        else
+        result /= A;
     }
    
     return result;
     
 }
 
-int result = Product(A);
+double result = Product(A);
 Console.WriteLine("Результат " + result);
