@@ -29,7 +29,7 @@ int[] array = new int[8];
 FillArray(array);
 PrintArray(array);*/
 
-void FillArray(int[] collection)
+/*void FillArray(int[] collection)
 {
 for (int i = 0; i < collection.Length; i++)
 {
@@ -50,4 +50,24 @@ position++;
 }
 int[] array = new int[5];
 FillArray(array);
-printArray(array);
+printArray(array);*/
+
+//Массив с произвольными значениями и заданной длиной
+Console.WriteLine("Введите длинну массива");
+int length = int.Parse(Console.ReadLine()!);
+int[] arr = new int[length];
+
+void MassConf(int[] arr)
+{
+for (int i = 0; i < length; i++)
+{
+arr[i] = new Random().Next();
+}
+}
+void PrintArray(int[] arr)
+{
+var str = string.Join(" ", arr);
+Console.Write($"{str} ");
+}
+MassConf(arr);
+PrintArray(arr);

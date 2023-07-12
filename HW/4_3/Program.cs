@@ -15,7 +15,7 @@ int length = Size.Length;
 int index = 0;
 while (index < length)
 {
-Size[index] = new Random().Next(from, to);
+Size[index] = new Random().Next(from, to +1 );
 index++;
 }
 }
