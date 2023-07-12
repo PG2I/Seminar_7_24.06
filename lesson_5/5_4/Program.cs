@@ -37,4 +37,5 @@ int c = int.Parse(Console.ReadLine()!);
 
 int[] mass = MassNums(a, b, c);
 PrintArray(mass);
+System.Console.WriteLine("Количество чисел в массиве от 10 до 99");
 System.Console.WriteLine(CheckAndCountNum(mass));
