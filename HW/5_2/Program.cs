@@ -1,4 +1,5 @@
-﻿ 
+﻿ // Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
+
 Console.WriteLine("Размер массива:");
 int size = int.Parse(Console.ReadLine()!);
 Console.WriteLine("from:");
@@ -32,7 +33,7 @@ int to = int.Parse(Console.ReadLine()!);
     {
         int sum = 0;
         int size = arr.Length;
-        for (int i = 1; i < size; i += 2)
+        for (int i = 0; i < size; i += 2)
         {
             sum += arr[i];
         }
