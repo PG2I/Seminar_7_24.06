@@ -9,7 +9,7 @@ void MNumbersMoreZero()
         for (int i = 0; i < count; i++)
         {
             Console.WriteLine($"Enter numbers: {i + 1}:");
-            int number = int.Parse(Console.ReadLine());
+            int number = int.Parse(Console.ReadLine()!);
             if (number > 0)
             {
                 positiveCount++;
