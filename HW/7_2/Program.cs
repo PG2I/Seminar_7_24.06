@@ -1,4 +1,9 @@
-﻿ Console.Write("Кол-во строк: ");
+﻿// Напишите программу, которая на вход принимает позиции элемента в двумерном массиве. 
+// B возвращает значение этого элемента или же указание, что такого элемента нет.
+
+
+
+Console.Write("Кол-во строк: ");
 int rows = int.Parse(Console.ReadLine()!);
 Console.Write("Кол-во столбцов: ");
 int cols = int.Parse(Console.ReadLine()!);
@@ -10,24 +15,10 @@ int minValue = int.Parse(Console.ReadLine()!);
 Console.Write("Максимальное значение: ");
 int maxValue = int.Parse(Console.ReadLine()!);
 
+Console.Write("Введите число для поиска: ");
+int numberToFind = int.Parse(Console.ReadLine()!);
 
 
-Console.Write("Введите номер строки: ");
-int rowNumber = int.Parse(Console.ReadLine()!);
-Console.Write("Введите номер столбца: ");
-int colNumber = int.Parse(Console.ReadLine()!);
-
-int element = GetElement(matrix, rowNumber, colNumber);
-
-        if (element != int.MinValue)
-        {
-            Console.WriteLine($"Значение элемента: {element}");
-        }
-        else
-        {
-            Console.WriteLine("Такого элемента нет в массиве.");
-        }
-    
 void FillArray(int[,] matrix, int minValue, int maxValue)
     {
         Random random = new Random();
@@ -41,7 +32,7 @@ void FillArray(int[,] matrix, int minValue, int maxValue)
         }
     }
 
-void PrintArray(int[,] matrix)
+    void PrintArray(int[,] matrix)
     {
         for (int i = 0; i < matrix.GetLength(0); i++)
         {
@@ -53,18 +44,29 @@ void PrintArray(int[,] matrix)
         }
     }
 
- int GetElement(int[,] matrix, int row, int col)
+    string FindElementPosition(int[,] matrix, int numberToFind)
     {
         int rows = matrix.GetLength(0);
         int cols = matrix.GetLength(1);
 
-        if (row >= 0 && row < rows && col >= 0 && col < cols)
+        for (int i = 0; i < rows; i++)
         {
-            return matrix[row, col];
+            for (int j = 0; j < cols; j++)
+            {
+                if (matrix[i, j] == numberToFind)
+                {
+                    return $"Значение {numberToFind} найдено в строке {i+1} и столбце {j+1}.";
+                }
+            }
         }
 
-        return int.MinValue;
+        return "Значение не найдено.";
     }
+FillArray(matrix, minValue, maxValue);
 
-    FillArray(matrix, minValue, maxValue);
-    PrintArray(matrix);
+string positionInfo = FindElementPosition(matrix, numberToFind);
+
+Console.WriteLine(positionInfo);
+
+Console.WriteLine();
+PrintArray(matrix);
