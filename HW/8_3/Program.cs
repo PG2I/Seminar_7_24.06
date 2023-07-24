@@ -43,7 +43,7 @@ if (resultMatrix != null)
 }
 
 
-static void FillArray(int[,] matrix, int minValue, int maxValue)
+void FillArray(int[,] matrix, int minValue, int maxValue)
 {
     Random random = new Random();
 
@@ -55,8 +55,7 @@ static void FillArray(int[,] matrix, int minValue, int maxValue)
         }
     }
 }
-
-static void PrintArray(int[,] matrix)
+void PrintArray(int[,] matrix)
 {
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
@@ -68,7 +67,7 @@ static void PrintArray(int[,] matrix)
     }
 }
 
-static int[,] MultiplyMatrices(int[,] matrix1, int[,] matrix2)
+int[,] MultiplyMatrices(int[,] matrix1, int[,] matrix2)
 {
     int rows1 = matrix1.GetLength(0);
     int cols1 = matrix1.GetLength(1);
